@@ -16,4 +16,8 @@ for (let i = 0; i < 30_000_000; i++) {
 
 const finish = new Date();
 
-console.log(`Sync process finished in ${finish - start} miliseconds`);
+console.log(
+  `Sync calculation (90_000_000 iterations) finished in ${
+    finish - start
+  } miliseconds`
+);
