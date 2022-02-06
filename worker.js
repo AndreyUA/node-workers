@@ -1,1 +1,17 @@
-console.log("I am worker");
+import { workerData } from "worker_threads";
+
+import { calculateFibonacci } from "./fibo.js";
+
+const start = new Date();
+
+for (let i = 0; i < 30_000_000; i++) {
+  calculateFibonacci(100);
+}
+
+const finish = new Date();
+
+console.log(
+  `I am worker number ${workerData.number}. Calculation finished in ${
+    finish - start
+  } miliseconds`
+);
