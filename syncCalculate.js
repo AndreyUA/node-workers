@@ -2,7 +2,15 @@ import { calculateFibonacci } from "./fibo.js";
 
 const start = new Date();
 
-for (let i = 0; i < 90_000_000; i++) {
+for (let i = 0; i < 30_000_000; i++) {
+  calculateFibonacci(100);
+}
+
+for (let i = 0; i < 30_000_000; i++) {
+  calculateFibonacci(100);
+}
+
+for (let i = 0; i < 30_000_000; i++) {
   calculateFibonacci(100);
 }
 
