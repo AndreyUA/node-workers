@@ -1,6 +1,8 @@
-import { workerData } from "worker_threads";
+import { workerData, BroadcastChannel } from "worker_threads";
 
 import { calculateFibonacci } from "./fibo.js";
+
+const broadcastChannel = new BroadcastChannel("fibo");
 
 const start = new Date();
 
@@ -10,8 +12,11 @@ for (let i = 0; i < 30_000_000; i++) {
 
 const finish = new Date();
 
-console.log(
-  `I am worker number ${workerData.number}. Calculation finished in ${
+broadcastChannel.postMessage({
+  message: `Worker number ${
+    workerData.number
+  }. Calculation (30_000_000 iterations) finished in ${
     finish - start
-  } miliseconds`
-);
+  } miliseconds`,
+  time: finish - start,
+});
